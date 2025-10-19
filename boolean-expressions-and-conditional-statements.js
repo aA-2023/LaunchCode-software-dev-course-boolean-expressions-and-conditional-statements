@@ -26,23 +26,31 @@ Paste the following code into your editor:
 
 const readline = require('readline-sync');
 
-const hasTorch = true;
+const hasTorch = false;
 const hasMap = false;
+const hasCompass = true;
+const hasMagic = true;
 
 console.log("You see two paths: one leads to the mountains, the other to the village.");
 const choice = readline.question("Do you go to the 'mountains' or the 'village'?");
 
 if (choice === "mountains" && hasTorch) {
   console.log("You safely navigate through the dark mountains.");
-} else if (choice === "mountains" && !hasTorch) {
+}  else if (choice === "mountains" && hasMagic) {
+  console.log("You used your magic to see in the dark and made it through the dark mountians!");
+}
+else if (choice === "mountains" && !hasTorch) {
   console.log("It's too dark to proceed. You decide to turn back.");
-} else if (choice === "village" || hasMap) {
+}
+  else if (choice === "village" && hasMap) {
   console.log("You find your way to the village.");
+} else if (choice === "village" || hasCompass) {
+  console.log("You followed your compass to a village");
 } else {
   console.log("You get lost and wander aimlessly.");
 }
 
-/* 
+/*
 
 Add Customization and expand the game:
   - Add more choices and scenarios.
@@ -50,3 +58,6 @@ Add Customization and expand the game:
   - Use nested conditionals and logical operators to create complex outcomes.
 
 */
+
+
+// i added a hasCompass, and hasMagic. and I added a couple more conditions
